@@ -102,6 +102,8 @@
     .birthday-card h3{font:900 clamp(55px,7.2vw,96px)/.86 "DM Sans",sans-serif;letter-spacing:-.06em;margin:0;max-width:660px}
     .birthday-card h3 em{display:block;background:linear-gradient(100deg,var(--card-pop),#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal;font-weight:900}
     .message{font-size:clamp(13px,1.5vw,17px);line-height:1.65;max-width:560px;white-space:pre-line;margin:27px 0 0}
+    .message.typing:after{content:'▍';color:var(--card-pop);animation:blink 1s steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
     .signature{margin-top:24px;font:600 18px "Playfair Display",serif}
     .card-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px}.card-button{align-self:flex-start;margin-top:0;border:0;border-radius:14px;background:linear-gradient(135deg,#e11d48,#7c3aed);color:#fff;padding:12px 17px;font-weight:800;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 12px 30px rgba(225,29,72,.25)}
     .card-button.secondary-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);box-shadow:none}.card-button svg{width:16px;height:16px}
@@ -120,7 +122,24 @@
     .balloon{position:absolute;width:48px;height:62px;border-radius:50% 50% 46% 46%;background:var(--card-pop);opacity:.78;bottom:-100px;z-index:1}.balloon:after{content:"";position:absolute;width:1px;height:80px;background:currentColor;left:50%;top:60px}.surprise.open .balloon{animation:rise 5.5s ease-in forwards}.balloon.b1{left:6%;animation-delay:.2s}.balloon.b2{left:20%;width:34px;height:44px;background:var(--card-bg);color:var(--card-bg);animation-delay:1.1s!important}.balloon.b3{right:8%;background:#2f9d83;color:#2f9d83;animation-delay:.6s!important}.balloon.b4{right:24%;width:38px;height:50px;background:#f6cb63;color:#f6cb63;animation-delay:1.5s!important}@keyframes rise{to{transform:translateY(-120vh) rotate(8deg)}}
     .confetti-piece{position:absolute;top:-25px;width:8px;height:14px;z-index:20;animation:fall 2.9s linear forwards;pointer-events:none}@keyframes fall{to{transform:translate(var(--drift),760px) rotate(640deg);opacity:.12}}
     .mobile-tabs{display:none}
-    .recipient-gate{position:fixed;inset:0;z-index:200;display:none;place-items:center;padding:24px;background:#020617;color:#f1f5f9;text-align:center;overflow:hidden}.recipient-gate:before,.recipient-gate:after{content:"";position:absolute;width:30rem;height:30rem;border-radius:50%;filter:blur(88px);opacity:.24;pointer-events:none}.recipient-gate:before{background:#f43f5e;left:-13rem;top:-14rem}.recipient-gate:after{background:#8b5cf6;right:-14rem;bottom:-16rem}.recipient-gate-inner{position:relative;z-index:1;width:min(460px,100%);padding:clamp(28px,6vw,46px);background:rgba(15,23,42,.76);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:28px;box-shadow:0 32px 90px rgba(0,0,0,.52),0 0 56px rgba(244,63,94,.12);transition:opacity .42s,transform .42s}.recipient-gate.unlocking .recipient-gate-inner{opacity:0;transform:scale(.94)}.recipient-gate .gift-mark{width:72px;height:72px;margin:0 auto 22px;padding:18px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,rgba(244,63,94,.2),rgba(139,92,246,.2));border-radius:22px;animation:float 3s ease-in-out infinite}.recipient-gate .gift-mark svg{width:100%;height:100%}.recipient-gate p{margin:0 0 10px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:#fda4af}.recipient-gate h2{font:900 clamp(34px,7vw,54px)/1.02 "DM Sans",sans-serif;letter-spacing:-.045em;margin:0}.recipient-gate h2 em{display:block;background:linear-gradient(100deg,#fb7185,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}.secret-hint{display:block;margin:14px auto 20px;color:#94a3b8;font-size:13px;line-height:1.6}.secret-form{display:grid;gap:10px}.secret-form input{text-align:center;font-size:20px;letter-spacing:.24em;font-weight:800;min-height:52px}.recipient-gate:not(.code-locked) .secret-form{display:none}.tap-open{display:none;width:100%}.recipient-gate:not(.code-locked) .tap-open{display:block}.secret-code-settings{display:none;margin-top:10px}.secret-code-settings.enabled{display:flex}.recipient-gate button{border:0;border-radius:14px;background:linear-gradient(135deg,#e11d48,#7c3aed);color:#fff;padding:14px 22px;font-weight:800;cursor:pointer;box-shadow:0 14px 38px rgba(225,29,72,.32)}.secret-error{min-height:18px;margin:10px 0 0!important;color:#fda4af!important;font-size:12px!important;letter-spacing:0!important;text-transform:none!important;font-weight:600!important}.receiver-mode .recipient-gate{display:grid}.receiver-mode.recipient-open .recipient-gate{display:none}.receiver-mode .shell{width:100%;max-width:none;padding:0}.receiver-mode .intro,.receiver-mode .mobile-tabs,.receiver-mode .controls,.receiver-mode .stage-toolbar{display:none!important}.receiver-mode .workspace{display:block}.receiver-mode .stage-panel{display:none;border:0;border-radius:0;padding:0;min-height:100svh;box-shadow:none;background:transparent}.receiver-mode.recipient-open .stage-panel{display:block;animation:revealCard .55s ease both}.receiver-mode .stage{min-height:100svh;border-radius:0;padding:clamp(14px,3vw,34px);background:#020617}.receiver-mode .birthday-card{max-width:1180px;min-height:min(760px,calc(100svh - 68px))}@keyframes float{50%{transform:translateY(-8px)}}@keyframes revealCard{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+    .recipient-gate{position:fixed;inset:0;z-index:200;display:none;place-items:center;padding:24px;background:#020617;color:#f1f5f9;text-align:center;overflow:hidden}.recipient-gate:before,.recipient-gate:after{content:"";position:absolute;width:30rem;height:30rem;border-radius:50%;filter:blur(88px);opacity:.24;pointer-events:none}.recipient-gate:before{background:#f43f5e;left:-13rem;top:-14rem}.recipient-gate:after{background:#8b5cf6;right:-14rem;bottom:-16rem}.recipient-gate-inner{position:relative;z-index:1;width:min(460px,100%);padding:clamp(28px,6vw,46px);background:rgba(15,23,42,.76);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:28px;box-shadow:0 32px 90px rgba(0,0,0,.52),0 0 56px rgba(244,63,94,.12);transition:opacity .42s,transform .42s}.recipient-gate.unlocking .recipient-gate-inner{opacity:0;transform:scale(.94)}.recipient-gate .gift-mark{width:72px;height:72px;margin:0 auto 22px;padding:18px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,rgba(244,63,94,.2),rgba(139,92,246,.2));border-radius:22px;animation:float 3s ease-in-out infinite}.recipient-gate .gift-mark svg{width:100%;height:100%}.recipient-gate p{margin:0 0 10px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:#fda4af}.recipient-gate h2{font:900 clamp(34px,7vw,54px)/1.02 "DM Sans",sans-serif;letter-spacing:-.045em;margin:0}.recipient-gate h2 em{display:block;background:linear-gradient(100deg,#fb7185,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}.secret-hint{display:block;margin:14px auto 20px;color:#94a3b8;font-size:13px;line-height:1.6}.secret-form{display:grid;gap:10px}.secret-form input{text-align:center;font-size:20px;letter-spacing:.24em;font-weight:800;min-height:52px}.recipient-gate:not(.code-locked) .secret-form{display:none}.tap-open{display:none;width:100%}.recipient-gate:not(.code-locked) .tap-open{display:block}.secret-code-settings{display:none;margin-top:10px}.secret-code-settings.enabled{display:flex}.recipient-gate button{border:0;border-radius:14px;background:linear-gradient(135deg,#e11d48,#7c3aed);color:#fff;padding:14px 22px;font-weight:800;cursor:pointer;box-shadow:0 14px 38px rgba(225,29,72,.32)}
+    .recipient-gate .envelope-wrap{display:none;position:relative;z-index:1;width:min(360px,100%);text-align:center}
+    .recipient-gate.has-envelope .envelope-wrap{display:block}
+    .recipient-gate.has-envelope .recipient-gate-inner{display:none}
+    .recipient-gate.has-envelope.envelope-opened .envelope-wrap{display:none}
+    .recipient-gate.has-envelope.envelope-opened .recipient-gate-inner{display:block;animation:revealCard .55s ease both}
+    .recipient-gate .envelope{position:relative;width:min(320px,84vw);height:208px;margin:6px auto 0;cursor:pointer;perspective:700px}
+    .recipient-gate .env-back{position:absolute;inset:0;background:linear-gradient(135deg,#3b1d2e,#1c0f2e);border:1px solid rgba(255,255,255,.14);border-radius:14px}
+    .recipient-gate .env-letter{position:absolute;left:14px;right:14px;top:10px;bottom:10px;background:#fff8f0;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;z-index:2;transition:transform .8s ease .35s}
+    .recipient-gate .env-letter span{font-size:38px}
+    .recipient-gate .env-letter p{margin:0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#7c2d12}
+    .recipient-gate .envelope.open .env-letter{transform:translateY(-118px)}
+    .recipient-gate .env-pocket{position:absolute;inset:0;z-index:3;background:linear-gradient(135deg,#4a2540,#221136);border-radius:14px;clip-path:polygon(0 0,50% 44%,100% 0,100% 100%,0 100%)}
+    .recipient-gate .env-flap{position:absolute;left:0;right:0;top:0;height:54%;z-index:4;background:linear-gradient(135deg,#5e3049,#2b1543);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;transition:transform .6s ease;border-radius:14px 14px 0 0}
+    .recipient-gate .envelope.open .env-flap{transform:rotateX(180deg);z-index:1}
+    .recipient-gate .env-seal{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:5;width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fb7185,#be123c);display:grid;place-items:center;font-size:22px;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.45);transition:opacity .3s,transform .3s}
+    .recipient-gate .envelope.open .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.3)}
+    .recipient-gate .env-hint{margin:20px 0 0;font-size:13px;letter-spacing:0;text-transform:none;font-weight:600;color:#94a3b8;animation:float 2.6s ease-in-out infinite}.secret-error{min-height:18px;margin:10px 0 0!important;color:#fda4af!important;font-size:12px!important;letter-spacing:0!important;text-transform:none!important;font-weight:600!important}.receiver-mode .recipient-gate{display:grid}.receiver-mode.recipient-open .recipient-gate{display:none}.receiver-mode .shell{width:100%;max-width:none;padding:0}.receiver-mode .intro,.receiver-mode .mobile-tabs,.receiver-mode .controls,.receiver-mode .stage-toolbar{display:none!important}.receiver-mode .workspace{display:block}.receiver-mode .stage-panel{display:none;border:0;border-radius:0;padding:0;min-height:100svh;box-shadow:none;background:transparent}.receiver-mode.recipient-open .stage-panel{display:block;animation:revealCard .55s ease both}.receiver-mode .stage{min-height:100svh;border-radius:0;padding:clamp(14px,3vw,34px);background:#020617}.receiver-mode .birthday-card{max-width:1180px;min-height:min(760px,calc(100svh - 68px))}@keyframes float{50%{transform:translateY(-8px)}}@keyframes revealCard{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
     .toast{position:fixed;z-index:300;left:50%;bottom:max(20px,env(safe-area-inset-bottom));transform:translate(-50%,16px);opacity:0;pointer-events:none;background:var(--solid);color:var(--solid-ink);padding:10px 15px;border-radius:999px;font-size:11px;max-width:calc(100vw - 28px);text-align:center;transition:.23s}.toast.show{opacity:1;transform:translate(-50%,0)}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(max-width:1050px){.birthday-card{min-height:620px}.card-layout{grid-template-columns:minmax(0,1.15fr) minmax(205px,.85fr)}.card-copy{padding:44px}.birthday-card h3{font-size:68px}}
@@ -143,6 +162,16 @@
   </svg>
 
   <section class="recipient-gate" id="recipientGate" aria-label="Buka pesan rahasia">
+    <div class="envelope-wrap" id="envelopeWrap">
+      <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Ketuk amplop untuk membukanya">
+        <div class="env-back"></div>
+        <div class="env-letter"><span>💌</span><p>Untukmu</p></div>
+        <div class="env-pocket"></div>
+        <div class="env-flap"></div>
+        <div class="env-seal">❤</div>
+      </div>
+      <p class="env-hint">Ketuk amplop untuk membukanya ✨</p>
+    </div>
     <div class="recipient-gate-inner">
       <div class="gift-mark"><svg><use href="#i-gift"/></svg></div>
       <p>Special Birthday Experience</p>
@@ -181,6 +210,7 @@
           <div class="toggle-row"><div><strong>Kunci dengan kode rahasia</strong><small>Opsional—nonaktif secara default</small></div><label class="switch"><input id="secretLockToggle" type="checkbox" aria-label="Kunci dengan kode rahasia"></label></div>
           <div class="field secret-code-settings" id="secretCodeSettings"><label for="secretCode">Kode rahasia penerima</label><input id="secretCode" value="" maxlength="32" autocomplete="off" inputmode="numeric" placeholder="Contoh: 1109"></div>
           <p class="helper" id="secretHelper">Tanpa kunci, penerima cukup mengetuk untuk membuka ucapan. Aktifkan kunci hanya jika ingin memakai kode rahasia.</p>
+          <div class="toggle-row"><div><strong>Amplop tersegel</strong><small>Penerima membuka amplop dulu sebelum kartu</small></div><label class="switch"><input id="envelopeToggle" type="checkbox" aria-label="Amplop tersegel"></label></div>
         </section>
 
         <section class="section">
@@ -209,6 +239,7 @@
           <div class="field" style="margin-top:10px"><label for="message">Ucapan utama</label><textarea id="message">Semoga tahun ini membawa lebih banyak tawa, petualangan baru, dan semua hal baik yang pantas kamu dapatkan. Terima kasih sudah menjadi bagian terindah dalam hidupku.</textarea></div>
           <div class="label" style="margin-bottom:8px">Tambahkan doa cepat</div>
           <div class="chips"><button class="chip wish">Sehat selalu</button><button class="chip wish">Makin sukses</button><button class="chip wish">Bahagia terus</button></div>
+          <div class="toggle-row"><div><strong>Efek mengetik</strong><small>Pesan muncul huruf per huruf</small></div><label class="switch"><input id="typewriterToggle" type="checkbox" aria-label="Efek mengetik"></label></div>
         </section>
 
         <section class="section">
@@ -228,6 +259,7 @@
           <div class="field" style="margin-top:12px"><label for="birthday">Tanggal ulang tahun (opsional)</label><input id="birthday" type="datetime-local"></div>
           <div class="toggle-row"><div><strong>Hitung mundur</strong><small>Tampil jika tanggal belum tiba</small></div><label class="switch"><input id="countdownToggle" type="checkbox" aria-label="Hitung mundur"></label></div>
           <div class="toggle-row"><div><strong>Hujan konfeti</strong><small>Muncul saat kejutan dibuka</small></div><label class="switch"><input id="confettiToggle" type="checkbox" checked aria-label="Hujan konfeti"></label></div>
+          <div class="toggle-row"><div><strong>Tiup lilin pakai mic</strong><small>Deteksi tiupan sungguhan penerima</small></div><label class="switch"><input id="micBlowToggle" type="checkbox" aria-label="Tiup lilin pakai mic"></label></div>
         </section>
 
         <div class="actions">
@@ -296,8 +328,8 @@
       function esc(value){return String(value).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
       function slug(value){return String(value||'ucapan').toLowerCase().replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'ucapan'}
       function toast(text){var el=$('#toast');el.textContent=text;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(function(){el.classList.remove('show')},2600)}
-      function current(){var code=$('#secretCode').value.trim(),lockRequested=$('#secretLockToggle').checked;return {name:$('#name').value.trim()||'Kamu',age:$('#age').value||'',sender:$('#sender').value.trim()||'Seseorang yang menyayangimu',message:$('#message').value.trim(),locked:lockRequested&&!!code,code:code,birthday:$('#birthday').value,countdown:$('#countdownToggle').checked,confetti:$('#confettiToggle').checked}}
-      function payload(){var data=current();return {v:4,name:data.name,age:data.age,sender:data.sender,message:data.message,locked:data.locked,code:data.locked?data.code:'',theme:state.theme,color:state.color,photo:state.photo,audio:state.audio,melody:state.melody,birthday:data.birthday,countdown:data.countdown,confetti:data.confetti}}
+      function current(){var code=$('#secretCode').value.trim(),lockRequested=$('#secretLockToggle').checked;return {name:$('#name').value.trim()||'Kamu',age:$('#age').value||'',sender:$('#sender').value.trim()||'Seseorang yang menyayangimu',message:$('#message').value.trim(),locked:lockRequested&&!!code,code:code,birthday:$('#birthday').value,countdown:$('#countdownToggle').checked,confetti:$('#confettiToggle').checked,typewriter:$('#typewriterToggle').checked,envelope:$('#envelopeToggle').checked,micBlow:$('#micBlowToggle').checked}}
+      function payload(){var data=current();return {v:4,name:data.name,age:data.age,sender:data.sender,message:data.message,locked:data.locked,code:data.locked?data.code:'',theme:state.theme,color:state.color,photo:state.photo,audio:state.audio,melody:state.melody,birthday:data.birthday,countdown:data.countdown,confetti:data.confetti,typewriter:data.typewriter,envelope:data.envelope,micBlow:data.micBlow}}
       function bytesToBase64(bytes){var out='',step=32768;for(var i=0;i<bytes.length;i+=step)out+=String.fromCharCode.apply(null,bytes.subarray(i,i+step));return btoa(out).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
       function base64ToBytes(text){text=text.replace(/-/g,'+').replace(/_/g,'/');while(text.length%4)text+='=';var raw=atob(text),bytes=new Uint8Array(raw.length);for(var i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);return bytes}
       function encodePayload(data){return bytesToBase64(new TextEncoder().encode(JSON.stringify(data)))}
@@ -306,7 +338,7 @@
       function safeDataUrl(value,pattern,maxBytes){if(typeof value!=='string'||!pattern.test(value))return '';var comma=value.indexOf(','),encoded=comma>=0?value.slice(comma+1):'';if(!encoded||encoded.length*3/4>maxBytes)return '';return value}
       function applySharedData(data){
         state.receiver=true;state.theme=themes[data.theme]?data.theme:'sunny';state.color=/^#[0-9a-f]{6}$/i.test(data.color||'')?data.color:'#dd5b3d';state.photo=safeDataUrl(data.photo,/^data:image\/jpeg;base64,/i,900000);state.audio=safeDataUrl(data.audio,/^data:audio\/(mpeg|mp4|wav|ogg|webm);base64,/i,16*1024*1024);state.melody=['party','piano','musicbox'].indexOf(data.melody)>=0?data.melody:'party';
-        $('#name').value=data.name||'Kamu';$('#age').value=data.age||'';$('#sender').value=data.sender||'Seseorang yang menyayangimu';$('#message').value=data.message||'';var legacyLocked=data.v<4&&!!data.code;$('#secretLockToggle').checked=data.locked===true||legacyLocked;$('#secretCode').value=data.code||'';$('#birthday').value=data.birthday||'';$('#countdownToggle').checked=!!data.countdown;$('#confettiToggle').checked=data.confetti!==false;
+        $('#name').value=data.name||'Kamu';$('#age').value=data.age||'';$('#sender').value=data.sender||'Seseorang yang menyayangimu';$('#message').value=data.message||'';var legacyLocked=data.v<4&&!!data.code;$('#secretLockToggle').checked=data.locked===true||legacyLocked;$('#secretCode').value=data.code||'';$('#birthday').value=data.birthday||'';$('#countdownToggle').checked=!!data.countdown;$('#confettiToggle').checked=data.confetti!==false;$('#typewriterToggle').checked=!!data.typewriter;$('#envelopeToggle').checked=!!data.envelope;$('#micBlowToggle').checked=!!data.micBlow;
         $$('.theme').forEach(function(x){x.classList.toggle('active',x.dataset.theme===state.theme)});$$('.swatch').forEach(function(x){x.classList.toggle('active',x.dataset.color.toLowerCase()===state.color.toLowerCase())});$$('.melody').forEach(function(x){x.classList.toggle('active',x.dataset.melody===state.melody)});
         if(state.photo){$('#photoPreview').src=state.photo;$('#photoName').textContent='Foto dari link'}
         if(state.audio){$('#audioPreview').src=state.audio;$('#audioTest').classList.add('ready');$('#audioName').textContent='Musik dari link'}
@@ -321,6 +353,9 @@
       function configureRecipientGate(){
         var data=current(),gate=$('#recipientGate');
         gate.classList.toggle('code-locked',data.locked);
+        gate.classList.toggle('has-envelope',!!data.envelope);
+        gate.classList.remove('envelope-opened');
+        var env=$('#envelope');if(env)env.classList.remove('open');
         if(data.locked){
           $('#gateTitle').innerHTML='Pesan Rahasia <em>Terkunci 💌</em>';
           $('#gateHint').innerHTML='Masukkan kode rahasia dari pengirim untuk membuka ucapan spesial untuk <strong id="gateName"></strong>.';
@@ -330,14 +365,28 @@
         }
         $('#gateName').textContent=data.name||'kamu';
       }
+      function openEnvelope(){
+        var gate=$('#recipientGate'),env=$('#envelope');
+        if(!gate.classList.contains('has-envelope')||gate.classList.contains('envelope-opened')||!env)return;
+        env.classList.add('open');
+        setTimeout(function(){gate.classList.add('envelope-opened')},1350);
+      }
       var sharedData=readSharedHash();if(sharedData)applySharedData(sharedData);
       syncSecretSettings();
 
+      var typeTimer=null;
       function update(){
         var data=current(), palette=themes[state.theme], card=$('#card');
         $('#previewName').textContent=data.name+'!';
         $('#previewSender').textContent=data.sender;
-        $('#previewMessage').textContent=data.message;
+        var msgEl=$('#previewMessage');
+        if(typeTimer){clearTimeout(typeTimer);typeTimer=null}
+        msgEl.classList.remove('typing');
+        if(data.typewriter&&data.message&&document.activeElement!==$('#message')){
+          (function(){var full=data.message,i=0;msgEl.textContent='';msgEl.classList.add('typing');(function tick(){i++;msgEl.textContent=full.slice(0,i);if(i<full.length){typeTimer=setTimeout(tick,full[i-1]==='\n'?170:26)}else{msgEl.classList.remove('typing');typeTimer=null}})()})();
+        }else{
+          msgEl.textContent=data.message;
+        }
         $('#ageArt').textContent=data.age||'\u221e';
         $('#surpriseAge').textContent=data.age||'\u221e';
         card.className='birthday-card'+(state.photo?' has-photo':'');
@@ -357,6 +406,7 @@
       $$('.wish').forEach(function(button){button.addEventListener('click',function(){var phrase=button.textContent+'.',ta=$('#message');if(ta.value.indexOf(phrase)<0)ta.value=ta.value.trim()+' '+phrase;button.classList.add('active');update()})});
       $('#countdownToggle').addEventListener('change',update);
       $('#confettiToggle').addEventListener('change',update);
+      ['typewriterToggle','envelopeToggle','micBlowToggle'].forEach(function(id){$('#'+id).addEventListener('change',update)});
       $('#secretLockToggle').addEventListener('change',function(){syncSecretSettings();if(this.checked)$('#secretCode').focus()});
 
       function readAsDataURL(file,done){var reader=new FileReader();reader.onload=function(){done(reader.result)};reader.onerror=function(){toast('File tidak dapat dibaca')};reader.readAsDataURL(file)}
@@ -405,15 +455,47 @@
         }
         for(var i=0;i<60;i++)(function(index){var piece=document.createElement('i');piece.className='confetti-piece';piece.style.left=Math.random()*100+'%';piece.style.background=colors[index%colors.length];piece.style.setProperty('--drift',(Math.random()*180-90)+'px');piece.style.animationDelay=Math.random()*.45+'s';container.appendChild(piece);setTimeout(function(){piece.remove()},3500)})(i);
       }
-      $('#openSurprise').addEventListener('click',function(){$('#cake').classList.remove('candles-out');$('#blowCandles').disabled=false;$('#blowCandles').textContent='Tiup lilin';$('#surpriseTitle').textContent='Satu harapan untukmu.';$('#surprise').classList.add('open');$('#surprise').setAttribute('aria-hidden','false');confetti($('#card'));togglePreviewAudio(true)});
-      $('#blowCandles').addEventListener('click',function(){
+      $('#openSurprise').addEventListener('click',function(){stopMic();$('#cake').classList.remove('candles-out');var bb=$('#blowCandles');bb.disabled=false;bb.textContent='Tiup lilin';delete bb.dataset.mic;$('#surpriseTitle').textContent='Satu harapan untukmu.';$('#surprise').classList.add('open');$('#surprise').setAttribute('aria-hidden','false');confetti($('#card'));togglePreviewAudio(true)});
+      var micStream=null,micRAF=null;
+      function stopMic(){if(micRAF){cancelAnimationFrame(micRAF);micRAF=null}if(micStream){micStream.getTracks().forEach(function(t){try{t.stop()}catch(e){}});micStream=null}}
+      function detectBlow(onBlow,onFallback){
+        var AC=window.AudioContext||window.webkitAudioContext;
+        if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!AC){onFallback();return}
+        navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
+          micStream=stream;
+          var ctx=new AC(),src=ctx.createMediaStreamSource(stream),analyser=ctx.createAnalyser();
+          analyser.fftSize=1024;src.connect(analyser);
+          var buf=new Float32Array(analyser.fftSize),hot=0,alive=true;
+          setTimeout(function(){if(alive){alive=false;stopMic();try{ctx.close()}catch(e){}onFallback()}},25000);
+          (function loop(){
+            if(!alive)return;
+            analyser.getFloatTimeDomainData(buf);
+            var sum=0,i;for(i=0;i<buf.length;i++)sum+=buf[i]*buf[i];
+            var rms=Math.sqrt(sum/buf.length);
+            if(rms>0.16){hot++}else{hot=0}
+            if(hot>10){alive=false;stopMic();try{ctx.close()}catch(e){}onBlow();return}
+            micRAF=requestAnimationFrame(loop);
+          })();
+        }).catch(function(){onFallback()});
+      }
+      function doBlowBuilder(){
+        stopMic();
         $('#cake').classList.add('candles-out');
-        this.disabled=true;
-        this.textContent='Lilin sudah padam';
+        var btn=$('#blowCandles');btn.disabled=true;btn.textContent='Lilin sudah padam';delete btn.dataset.mic;
         $('#surpriseTitle').textContent='Semoga terkabul.';
         $('#surpriseWish').textContent='Hari ini, rayakan dirimu sepenuhnya. Kamu pantas menerima semua hal baik yang sedang menuju kepadamu.';
         confetti($('#card'));
         setTimeout(function(){confetti($('#card'));},420);
+      }
+      $('#blowCandles').addEventListener('click',function(){
+        var btn=this;
+        if(current().micBlow&&!btn.dataset.mic){
+          btn.dataset.mic='1';btn.textContent='Tiup ke mic sekarang! 🎙️';
+          toast('Izinkan akses mic, lalu tiup seperti meniup lilin');
+          detectBlow(doBlowBuilder,function(){doBlowBuilder()});
+          return;
+        }
+        doBlowBuilder();
       });
       $('#closeSurprise').addEventListener('click',function(){$('#surprise').classList.remove('open');$('#surprise').setAttribute('aria-hidden','true')});
       $('#confettiAgain').addEventListener('click',function(){confetti($('#card'))});
@@ -426,6 +508,8 @@
       $('#openGreeting').addEventListener('click',unlockGreeting);
       $('#tapOpenGreeting').addEventListener('click',unlockGreeting);
       $('#secretInput').addEventListener('keydown',function(event){if(event.key==='Enter')unlockGreeting()});
+      var envelopeEl=$('#envelope');
+      if(envelopeEl){envelopeEl.addEventListener('click',openEnvelope);envelopeEl.addEventListener('keydown',function(event){if(event.key==='Enter'||event.key===' '){event.preventDefault();openEnvelope()}})}
 
       $$('.view-switch button').forEach(function(button){button.addEventListener('click',function(){$$('.view-switch button').forEach(function(x){x.classList.remove('active')});button.classList.add('active');$('#stage').classList.toggle('mobile',button.dataset.view==='mobile')})});
       $$('.mobile-tabs button').forEach(function(button){button.addEventListener('click',function(){$$('.mobile-tabs button').forEach(function(x){x.classList.remove('active')});button.classList.add('active');$('.controls').classList.toggle('active',button.dataset.tab==='controls');$('.stage-panel').classList.toggle('active',button.dataset.tab==='preview');if(button.dataset.tab==='preview')window.scrollTo({top:0,behavior:'smooth'})})});
@@ -443,8 +527,9 @@
         var photoClass=state.photo?' has-photo':'';
         var audioButton='<button class="music" id="music" type="button" aria-label="Putar atau jeda musik"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 9l11-2M6.5 21A2.5 2.5 0 1 0 6.5 16 2.5 2.5 0 0 0 6.5 21Zm11 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Putar lagu</span></button>';
         var lockControls=data.locked?'<input id="lockInput" type="password" inputmode="numeric" placeholder="Masukkan kode rahasia" maxlength="32"><button id="unlock" type="button">Buka Pesan 🔓</button><small id="lockError"></small>':'<button id="unlock" type="button">Ketuk untuk membuka ✨</button><small id="lockError"></small>';
-        var lockMarkup='<section class="lock" id="lock"><div class="lock-card"><div class="lock-icon">💌</div><p>Special Birthday Experience</p><h2>'+(data.locked?'Pesan Rahasia <em>Terkunci</em>':'Ada kejutan <em>untukmu</em>')+'</h2><span>'+(data.locked?'Masukkan kode rahasia dari pengirim untuk membuka ucapan spesial untuk ':'Ucapan spesial untuk ')+esc(data.name)+(data.locked?'.':' sudah siap. Ketuk tombol di bawah untuk membukanya.')+'</span>'+lockControls+'</div></section>';
-        var scriptData=JSON.stringify({birthday:data.birthday,countdown:data.countdown,confetti:data.confetti,audio:!!state.audio,melody:state.melody,color:state.color,locked:data.locked,code:data.locked?data.code:''}).replace(/</g,'\\u003c');
+        var envelopeMarkup=data.envelope?'<div class="env-wrap" id="envWrap"><div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Ketuk amplop untuk membukanya"><div class="env-back"></div><div class="env-letter"><span>💌</span><p>Untukmu</p></div><div class="env-pocket"></div><div class="env-flap"></div><div class="env-seal">❤</div></div><p class="env-hint">Ketuk amplop untuk membukanya ✨</p></div>':'';
+        var lockMarkup='<section class="lock'+(data.envelope?' has-env':'')+'" id="lock">'+envelopeMarkup+'<div class="lock-card"><div class="lock-icon">💌</div><p>Special Birthday Experience</p><h2>'+(data.locked?'Pesan Rahasia <em>Terkunci</em>':'Ada kejutan <em>untukmu</em>')+'</h2><span>'+(data.locked?'Masukkan kode rahasia dari pengirim untuk membuka ucapan spesial untuk ':'Ucapan spesial untuk ')+esc(data.name)+(data.locked?'.':' sudah siap. Ketuk tombol di bawah untuk membukanya.')+'</span>'+lockControls+'</div></section>';
+        var scriptData=JSON.stringify({birthday:data.birthday,countdown:data.countdown,confetti:data.confetti,audio:!!state.audio,melody:state.melody,color:state.color,locked:data.locked,code:data.locked?data.code:'',typewriter:data.typewriter,envelope:data.envelope,micBlow:data.micBlow}).replace(/</g,'\\u003c');
         return '<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light"><title>Selamat Ulang Tahun, '+esc(data.name)+'</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"><style>'+exportCSS(palette)+'</style></head><body class="locked">'+lockMarkup+'<main class="card'+photoClass+'" id="card" data-theme="'+state.theme+'" style="--pop:'+state.color+'"><div class="effects" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'+audioButton+'<div class="layout"><section class="copy"><p class="kicker">Hari ini tentang kamu</p><h1>Selamat ulang tahun,<em>'+esc(data.name)+'!</em></h1><p class="message">'+esc(data.message)+'</p>'+countMarkup+'<p class="signature">— '+esc(data.sender)+'</p><div class="export-actions"><button class="open" id="open" type="button"><svg viewBox="0 0 24 24"><path d="M4 10v10h16V10M2 6h20v4H2zM12 6v14M12 6H7.5A2.5 2.5 0 1 1 10 3.5L12 6Zm0 0h4.5A2.5 2.5 0 1 0 14 3.5L12 6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Buka kejutan</button><button class="again" id="again" type="button">Ledakkan Konfeti Lagi! 🎊</button></div></section><div class="visual '+(state.photo?'':'empty')+'">'+photo+'<div class="age">'+esc(data.age||'∞')+'</div></div></div><section class="surprise" id="surprise" aria-hidden="true"><i class="balloon b1"></i><i class="balloon b2"></i><i class="balloon b3"></i><i class="balloon b4"></i><div><b>'+esc(data.age||'∞')+'</b><h2 id="wishTitle">Satu harapan untukmu.</h2><p id="wishText">Semoga semua doa baikmu menemukan jalan pulang, satu per satu, pada waktu terbaiknya.</p><div class="cake" id="exportCake"><i class="candle"><i class="flame"></i></i><i class="candle"><i class="flame"></i></i><i class="candle"><i class="flame"></i></i></div><div class="surprise-actions"><button class="blow" id="blow" type="button">Tiup lilin</button><button id="close" type="button">Kembali ke ucapan</button></div></div></section></main>'+audio+'<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"><\/script><script>('+exportRuntime.toString()+')('+scriptData+');<\/script></body></html>';
       }
 
