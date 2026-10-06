@@ -263,9 +263,9 @@
         </section>
 
         <div class="actions">
-          <button class="btn link-action" id="copyLinkBtn"><svg><use href="#i-send"/></svg>Salin Link Ucapan</button>
-          <button class="btn secondary" id="shareFileBtn"><svg><use href="#i-send"/></svg>Bagikan File</button>
           <button class="btn primary" id="downloadBtn"><svg><use href="#i-download"/></svg>Unduh HTML</button>
+          <button class="btn link-action" id="copyLinkBtn"><svg><use href="#i-send"/></svg>Salin Link Ucapan</button>
+          <button class="btn secondary" id="shareFileBtn"><svg><use href="#i-send"/></svg>Kirim via WhatsApp</button>
           <p class="link-warning" id="linkWarning"></p>
           <div class="manual-link" id="manualLink">
             <div class="manual-link-head"><label for="shareUrl">Salin link manual</label><span>Gunakan bila clipboard diblokir browser.</span></div>
@@ -514,8 +514,8 @@
       $$('.view-switch button').forEach(function(button){button.addEventListener('click',function(){$$('.view-switch button').forEach(function(x){x.classList.remove('active')});button.classList.add('active');$('#stage').classList.toggle('mobile',button.dataset.view==='mobile')})});
       $$('.mobile-tabs button').forEach(function(button){button.addEventListener('click',function(){$$('.mobile-tabs button').forEach(function(x){x.classList.remove('active')});button.classList.add('active');$('.controls').classList.toggle('active',button.dataset.tab==='controls');$('.stage-panel').classList.toggle('active',button.dataset.tab==='preview');if(button.dataset.tab==='preview')window.scrollTo({top:0,behavior:'smooth'})})});
 
-      function createShareUrl(){return 'https://muse.ai/s/web-ucapan-ulang-tahun-xor673pxoxyxd2xa#ucapan='+encodePayload(payload())}
-      function showManualLink(url){$('#shareUrl').value=url;$('#manualLink').classList.add('show');var warning=$('#linkWarning');if(url.length>65000){warning.textContent='Link sangat panjang karena memuat foto atau musik. Untuk hasil paling andal, gunakan Bagikan File atau Unduh HTML.';warning.classList.add('show')}else warning.classList.remove('show')}
+      function createShareUrl(){var base=window.location.href.split('#')[0];return base+'#ucapan='+encodePayload(payload())}
+      function showManualLink(url){$('#shareUrl').value=url;$('#manualLink').classList.add('show');var warning=$('#linkWarning');if(url.length>65000){warning.textContent='Link sangat panjang karena memuat foto atau musik. Untuk hasil paling andal, gunakan Unduh HTML.';warning.classList.add('show')}else warning.classList.remove('show')}
       $('#copyLinkBtn').addEventListener('click',function(){var url=createShareUrl();showManualLink(url);if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(url).then(function(){toast('Link ucapan berhasil disalin')}).catch(function(){toast('Clipboard diblokir—salin dari kolom manual')})}else toast('Salin link dari kolom manual di bawah')});
       $('#selectLinkBtn').addEventListener('click',function(){var field=$('#shareUrl');field.focus();field.select();field.setSelectionRange(0,field.value.length);toast('Link dipilih—ketuk Salin di menu perangkatmu')});
 
@@ -558,9 +558,10 @@
       function download(){var file=generatedFile(),url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1200);toast('File HTML premium berhasil diunduh')}
       $('#downloadBtn').addEventListener('click',download);
       $('#shareFileBtn').addEventListener('click',function(){
-        var file=generatedFile(),data={files:[file],title:'Ucapan ulang tahun untuk '+current().name,text:'Buka file HTML ini untuk melihat kejutan ulang tahunmu.'};
-        if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){navigator.share(data).then(function(){toast('File ucapan siap dibagikan')}).catch(function(error){if(error&&error.name!=='AbortError')download()})}
-        else{download();toast('File diunduh—bagikan file HTML ini lewat WhatsApp atau aplikasi pilihanmu')}
+        var url=createShareUrl();showManualLink(url);
+        var text='*Ucapan ulang tahun untuk '+current().name+'* 🎂\n\nBuka kejutanmu di sini:\n'+url;
+        window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
+        toast('Membuka WhatsApp — pilih kontak doi lalu kirim');
       });
       update();
     })();
